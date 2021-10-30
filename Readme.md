@@ -7,3 +7,7 @@ Installation of django
 4. Create the Starter project using django-admin startproject vt .
 5. Test by running server using python manage.py runserver
 6. Create the new pages app using python manage.py startapp pages
+7. Add the static file in root of the folder using the command python manage.py collectstatic
+    7.1 Add the root location of static file using STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+    7.2 Add the static file directory for command in point 7 lookup using STATICFILES_DIRS = [os.path.join(BASE_DIR, 'vt/static')]
+    7.3 Update the settings.py 

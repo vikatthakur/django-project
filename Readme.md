@@ -11,3 +11,5 @@ Installation of django
 7.1 Add the root location of static file using STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 7.2 Add the static file directory for command in point 7 lookup using STATICFILES_DIRS = [os.path.join(BASE_DIR, 'vt/static')]
 7.3 Update the settings.py 
+8. install postgres from postgre website.
+9. set password and create new database.

@@ -1,12 +1,23 @@
 from django.http.response import HttpResponse
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.shortcuts import render
-
+from .models import Listing
 import pages
 
 def index(request):
-    return render(request, 'listings/listings.html')
+    listings = Listing.objects.order_by('-list_date').filter(is_published=True)
+    
+    paginator = Paginator(listings, 6)
+    page = request.GET.get('page') # This is the url paatter for pagination ex : /page=2
+    paged_listings = paginator.get_page(page)
 
-def listing(request):
+    context = {
+        'listings' : paged_listings
+    }
+
+    return render(request, 'listings/listings.html', context)
+
+def listing(request, listing_id):
     return render(request, 'listings/listing.html')
 
 def search(request):

@@ -13,3 +13,9 @@ Installation of django
 7.3 Update the settings.py 
 8. install postgres from postgre website.
 9. set password and create new database.
+10. create listing and realtor model and makemigrations using python manage.py makemigrations
+11. Then migrate the changes to postgres database python manage.py migrate
+12. add admin area for each app from admin.py
+13. added listing values to listings.html
+14. added pagination and made the listings dynamic
+

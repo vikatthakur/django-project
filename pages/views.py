@@ -2,7 +2,7 @@ from django.http.response import HttpResponse
 from django.shortcuts import render
 from listings.models import Listing
 from realtors.models import Realtor
-
+from listings.choices import price_choices, bedroom_choices, state_choices
 import pages
 
 def index(request):
@@ -11,7 +11,9 @@ def index(request):
     
     context = {
         'listings' : listings,
-        
+        'price_choices':price_choices,
+        'bedroom_choices':bedroom_choices,
+        'state_choices':state_choices
     }
 
     return render(request, 'pages/index.html', context)

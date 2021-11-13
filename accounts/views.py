@@ -13,7 +13,7 @@ def login(request):
         if user is not None:
             auth.login(request ,user)
             messages.success(request, 'Welcome back {user}'.format(user=username))
-            return redirect('dashboard')
+            return redirect('index')
         else:
             messages.error(request ,'Invalid username or passwrod')
             return redirect('login')
@@ -21,7 +21,11 @@ def login(request):
         return render(request, 'accounts/login.html')
 
 def logout(request):
-    return redirect('index')
+    if request.method == 'POST':
+        auth.logout(request)
+        messages.success(request, "Successfully logged out")
+        return redirect('index')
+    
 
 def register(request):
     if request.method == 'POST':
@@ -54,5 +58,4 @@ def register(request):
         return render(request, 'accounts/register.html')
 
 def dashboard(request):
-    print('from dashboard', request.GET)
     return render(request, 'accounts/dashboard.html')

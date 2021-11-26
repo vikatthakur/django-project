@@ -46,11 +46,9 @@ def search(request):
 
     #State
     if 'state' in request.GET:
-        print(request.GET)
-        stat = request.GET['state']
-        print(stat)
-        if stat:
-            queryset_listings = queryset_listings.filter(state__icontains=stat)
+        state = request.GET['state']
+        if state:
+            queryset_listings = queryset_listings.filter(state__icontains=state)
     
     #Bedrooms
     if 'bedrooms' in request.GET:
